@@ -8,7 +8,7 @@ function DoAllPage() {
   return (
     <div>
       Response Generated and Mail sent ( for the first 2 unseen mails coz of api
-      limits ) check your gmail
+      limits ) check your gmail. But first Inspect console!!!
     </div>
   );
 }

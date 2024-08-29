@@ -5,7 +5,7 @@ function InboxPage() {
 
   console.log(data);
 
-  return <div>Inbox</div>;
+  return <div>Inbox. Inspect Console.</div>;
 }
 
 export default InboxPage;

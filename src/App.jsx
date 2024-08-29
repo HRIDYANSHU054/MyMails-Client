@@ -13,6 +13,7 @@ import InboxPage, { loader as inboxDataLoader } from "./pages/InboxPage";
 import HomePage from "./pages/HomePage";
 import AppLayouut from "./components/AppLayouut";
 import PageNotFound from "./pages/PageNotFound";
+import { AuthProvider } from "./contexts/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/signup" replace />,
+        element: <Navigate to="/home" replace />,
       },
       {
         path: "/home",
@@ -34,10 +35,6 @@ const router = createBrowserRouter([
       {
         path: "/list",
         element: <ListPage />,
-      },
-      {
-        path: "/signup",
-        element: <SignupPage />,
       },
       {
         path: "/classify/:messageId",
@@ -55,10 +52,19 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/signup",
+    element: <SignupPage />,
+  },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      {" "}
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }
 
 export default App;

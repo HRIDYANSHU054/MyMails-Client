@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../contexts/AuthContext";
 
 function HomePage() {
   const navigate = useNavigate();
   const [messageId, setMessageId] = useState("");
+  const { setAuthUser } = useAuthContext();
 
   function getClassification(e) {
     if (!messageId.length) return;
@@ -17,6 +19,7 @@ function HomePage() {
         credentials: "include",
       });
       const data = await resp.json();
+      setAuthUser(null);
       navigate("/signup", { replace: true });
       return data.message;
     } catch (error) {

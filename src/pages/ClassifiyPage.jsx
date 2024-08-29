@@ -5,7 +5,7 @@ function ClassifiyPage() {
 
   console.log(data);
 
-  return <div>Labels and Responses</div>;
+  return <div>Labels and Responses. Inspect Console</div>;
 }
 
 export async function loader({ params }) {
